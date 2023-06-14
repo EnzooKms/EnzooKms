@@ -9,6 +9,7 @@ npm i utils-ed
 -----------------
 
 ![Stats](https://github-readme-stats.vercel.app/api?username=EnzooKms&show_icons=true&include_all_commits=true&theme=neon)
+<img width="41.7%" src='https://github-readme-stats.vercel.app/api/top-langs/?username=EnzooKms&layout=compact&langs_count=8&theme=neon'/>
 <br>
 [![Card](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=EnzooKms&repo=Express-session&theme=neon)](https://github.com/EnzooKms/Express-session)
 
