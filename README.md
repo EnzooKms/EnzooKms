@@ -3,7 +3,7 @@
 ![views](https://komarev.com/ghpvc/?username=EnzooKms)
 
 ```bash
-npm i utils-ed
+npm i utils-ed 
 ```
 
 -----------------
