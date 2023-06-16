@@ -3,7 +3,7 @@ name: Auto Pull Request
 on:
     push:
         branches:
-            - dev
+            - main
         
 jobs:
     updateAuthor:
@@ -19,6 +19,7 @@ jobs:
               run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
         
             - name: Raise PR
+              id: pr-1
               uses: peter-evans/create-pull-request@v3
               with:
                 branch: "dev"
@@ -27,6 +28,19 @@ jobs:
                 committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
                 author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
                 body:
-                    This is to show automatic PR creation
-                token: ${{ secrets.GITHUB_TOKEN}}
+                    automatic Pull Request creation
+                token: ${{ secrets.GITHUB_TOKEN }}
                 delete-branch: false
+            
+            - name: Approve Pull Request
+              uses: juliangruber/approve-pull-request-action@v1
+              with:
+                github-token: ${{ secrets.APPROVER_DEMO }}
+                number: ${{ steps.pr-1.outputs.pull-request-number }}
+
+            - name: Merge Pull Request
+              uses: juliangruber/merge-pull-request-action@v1
+              with:
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                number: ${{ steps.pr-1.outputs.pull-request-number }}
+                method: squash
