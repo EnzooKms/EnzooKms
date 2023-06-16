@@ -1,6 +1,6 @@
 # 𝔼𝕟𝕫𝕠𝕠_𝕂𝕞𝕤
 
-![views](https://komarev.com/ghpvc/?username=EnzooKms)
+![views](https://komarev.com/ghpvc/?username=EnzooKms&color=ff69b4&style=for-the-badge&label=MES+VUES)
 
 ```bash
 npm i utils-ed 
