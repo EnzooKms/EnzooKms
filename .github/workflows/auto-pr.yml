@@ -3,7 +3,7 @@ name: Auto Pull Request
 on:
     push:
         branches:
-            - main
+            - dev
         
 jobs:
     updateAuthor:
@@ -32,12 +32,14 @@ jobs:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 delete-branch: false
             
+            - if: ${{ steps.pr-1.outputs.pull-request-number }}
             - name: Approve Pull Request
               uses: juliangruber/approve-pull-request-action@v1
               with:
                 github-token: ${{ secrets.APPROVER_DEMO }}
                 number: ${{ steps.pr-1.outputs.pull-request-number }}
 
+            - if: ${{ steps.pr-1.outputs.pull-request-number }}
             - name: Merge Pull Request
               uses: juliangruber/merge-pull-request-action@v1
               with:
